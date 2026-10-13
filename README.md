@@ -1,74 +1,54 @@
-# Asset Vault Pro
+# Personal AssetVault (Solana Devnet Simulation)
 
-Buat website responsive bernama Personal AssetVault.
+Prototipe dApp brankas digital untuk pencatatan bukti kepemilikan gawai personal dan pemantauan depresiasi nilai aset berbasis simulasi Solana Devnet.
 
-Tujuan:
+Proyek ini disusun untuk memenuhi tugas **Modul 2: Build dengan AI Agent** pada mata kuliah **Praktikum Keamanan Data dan Blockchain**, Program Studi S1-Teknik Informatika, Universitas Semarang.
 
-Membantu pemilik mengelola brankas barang berharga pribadi (laptop, gadget, kamera), mencatat bukti kepemilikan, dan memantau estimasi nilai susut barang.
+---
 
-Target Pengguna:
+## Identitas Pengembang
+- **Nama:** Benedicto Adhyatmaka
+- **NIM:** G.231.24.0043
+- **Program Studi:** S1-Teknik Informatika
+- **Institusi:** FTIK, Universitas Semarang
 
-1. Vault Owner (Pemilik)
+---
 
-2. Recipient (Penerima transfer)
+## Problem Statement
+Untuk pemilik barang berharga personal yang mengalami risiko kehilangan nota fisik dan ketiadaan bukti tanggal kepemilikan yang sah, kami membangun Personal AssetVault agar mereka dapat mengarsipkan bukti kepemilikan dan memantau estimasi nilai susut secara transparan. Berbeda dari pencatatan spreadsheet biasa, sistem ini mengikat integritas bukti dan stempel waktu kepemilikan berbasis simulasi Solana Devnet tanpa mengekspos data pribadi ke publik.
 
-3. Public Verifier (Pemeriksa publik)
+---
 
-Halaman:
+## 5 Fitur Utama (MVP)
+1. **Simulasi Connect Wallet:** Tampilan status koneksi dompet Solana Devnet dummy beserta saldo SOL uji coba.
+2. **Form Tambah Aset & Bukti Dummy:** Input data gawai, nomor seri, harga beli, dan unggah sampel nota dummy.
+3. **Dashboard Valuasi & Depresiasi:** Pemantauan portofolio aset dengan perhitungan susut nilai otomatis berbasis durasi perolehan.
+4. **Simulasi Transfer Kepemilikan:** Alur pengalihan hak milik aset ke alamat wallet penerima.
+5. **Portal Verifikasi Publik:** Mesin pencari nomor seri atau ID sertifikat aset untuk memeriksa keabsahan tanpa perlu menghubungkan dompet.
 
-- Landing Page dengan tombol simulasi Connect Wallet.
+---
 
-- Dashboard Vault Pribadi (daftar koleksi aset dan total valuasi).
+## Catatan Simulasi & Keamanan (Penting)
+- **Simulasi Antarmuka:** Seluruh fitur blockchain pada tahap Modul 2 ini masih berupa simulasi antarmuka front-end dan belum mengeksekusi smart contract atau RPC on-chain riil.
+- **Data Sintetis:** Seluruh nomor seri, gambar kuitansi, dan nilai transaksi yang digunakan adalah data dummy.
+- **Nol Kunci Privat:** Sistem tidak pernah meminta, menerima, atau menyimpan Private Key atau Seed Phrase pengguna.
 
-- Form Tambah Aset Baru.
+---
 
-- Detail Aset dan simulasi depresiasi.
+## Teknologi yang Digunakan
+- **Framework:** React & TypeScript
+- **Styling:** Tailwind CSS & Lucide Icons
+- **Platform AI:** Lovable.dev
 
-- Portal Verifikasi Publik.
+---
 
-Fitur:
-
-- Simulasi Connect Wallet Solana (menampilkan dummy balance SOL dan short address, misal: 7Xw...9Pq).
-
-- Form tambah aset dummy (nama barang, kategori, serial number dummy, harga beli, upload foto nota dummy).
-
-- Kalkulasi depresiasi otomatis berbasis durasi kepemilikan.
-
-- Simulasi transfer aset ke alamat wallet penerima.
-
-- Pencarian status sertifikat aset pada portal publik.
-
-UI & Batasan:
-
-- Desain dark-mode modern Web3, profesional, responsive desktop dan mobile.
-
-- Gunakan card, badge status (Active, Transferred, Lost), dan tabel ringkas.
-
-- Gunakan data dummy/sintetis.
-
-- Jangan meminta private key atau seed phrase.
-
-- Tambahkan label/banner: "Fitur blockchain masih berupa simulasi antarmuka dan belum melakukan transaksi nyata."
-
-- Gunakan React dan TypeScript. Jangan buat smart contract sungguhan.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/4adbde01-6d02-4953-931c-2440ccb50bbc).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+## Panduan Instalasi Lokal
+1. Kloning repositori:
+   git clone https://github.com/[username-anda]/personal-assetvault.git
+2. Masuk ke direktori:
+   cd personal-assetvault
+3. Pasang dependensi:
+   npm install
+4. Jalankan aplikasi:
+   npm run dev
+5. Buka `http://localhost:8080` atau port yang tertera pada terminal.
