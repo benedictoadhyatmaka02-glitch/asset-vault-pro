@@ -43,7 +43,7 @@ function Landing() {
         ))}
       </div>
       <div className="mt-6 grid gap-4 md:grid-cols-3">
-        {[["Vault Owner", "Mendaftarkan & mengelola aset."], ["Recipient", "Menerima transfer kepemilikan."], ["Public Verifier", "Memeriksa keaslian sertifikat."]].map(([t, d]) => (
+        {([["Vault Owner", "Mendaftarkan & mengelola aset."], ["Recipient", "Menerima transfer kepemilikan."], ["Public Verifier", "Memeriksa keaslian sertifikat."]] as const).map(([t, d]) => (
           <Card key={t} className="flex items-center gap-4">
             <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-gradient-brand font-bold text-primary-foreground">{t.charAt(0)}</div>
             <div><div className="font-semibold">{t}</div><div className="text-sm text-muted-foreground">{d}</div></div>
