@@ -11,7 +11,7 @@ export interface Asset {
   purchaseDate: string;
   status: Status;
   owner: string;
-  receipt?: string;
+  receipt?: string | undefined;
   history: { date: string; event: string; to?: string }[];
 }
 
