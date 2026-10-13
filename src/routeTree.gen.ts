@@ -10,33 +10,74 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as VerifyRouteImport } from './routes/verify'
+import { Route as AssetsIdRouteImport } from './routes/assets.$id'
+import { Route as AssetsNewRouteImport } from './routes/assets.new'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerifyRoute = VerifyRouteImport.update({
+  id: '/verify',
+  path: '/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssetsIdRoute = AssetsIdRouteImport.update({
+  id: '/assets/$id',
+  path: '/assets/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssetsNewRoute = AssetsNewRouteImport.update({
+  id: '/assets/new',
+  path: '/assets/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/verify': typeof VerifyRoute
+  '/assets/$id': typeof AssetsIdRoute
+  '/assets/new': typeof AssetsNewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/verify': typeof VerifyRoute
+  '/assets/$id': typeof AssetsIdRoute
+  '/assets/new': typeof AssetsNewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/verify': typeof VerifyRoute
+  '/assets/$id': typeof AssetsIdRoute
+  '/assets/new': typeof AssetsNewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/dashboard' | '/verify' | '/assets/$id' | '/assets/new'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/dashboard' | '/verify' | '/assets/$id' | '/assets/new'
+  id:
+    '__root__' | '/' | '/dashboard' | '/verify' | '/assets/$id' | '/assets/new'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRoute
+  VerifyRoute: typeof VerifyRoute
+  AssetsIdRoute: typeof AssetsIdRoute
+  AssetsNewRoute: typeof AssetsNewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +89,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verify': {
+      id: '/verify'
+      path: '/verify'
+      fullPath: '/verify'
+      preLoaderRoute: typeof VerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assets/$id': {
+      id: '/assets/$id'
+      path: '/assets/$id'
+      fullPath: '/assets/$id'
+      preLoaderRoute: typeof AssetsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assets/new': {
+      id: '/assets/new'
+      path: '/assets/new'
+      fullPath: '/assets/new'
+      preLoaderRoute: typeof AssetsNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRoute,
+  VerifyRoute: VerifyRoute,
+  AssetsIdRoute: AssetsIdRoute,
+  AssetsNewRoute: AssetsNewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

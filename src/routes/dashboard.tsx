@@ -13,7 +13,7 @@ function Dashboard() {
   const { assets, wallet } = useVault();
   const [f, setF] = useState<Status | "All">("All");
   const [q, setQ] = useState("");
-  const mine = assets.filter((a) => a.owner === wallet!.address || a.history.some((h) => h.to) );
+  const mine = assets.filter((a) => a.owner === wallet!.address || a.status === "Transferred");
   const owned = mine.filter((a) => a.status !== "Transferred");
   const totalBuy = owned.reduce((s, a) => s + a.price, 0);
   const totalNow = owned.reduce((s, a) => s + currentValue(a), 0);
