@@ -34,7 +34,7 @@ function Verify() {
             <StatusBadge s={res.status} />
           </div>
           <dl className="mt-4 grid grid-cols-2 gap-3 text-sm">
-            {[["Kategori", res.category], ["Serial", res.serial.slice(0, 4) + "••••"], ["Pemilik saat ini", short(res.owner)], ["Terdaftar", res.history[0].date]].map(([k, v]) => <div key={k}><dt className="text-xs text-muted-foreground">{k}</dt><dd className="font-mono">{v}</dd></div>)}
+            {[["Kategori", res.category], ["Serial", res.serial.slice(0, 4) + "••••"], ["Pemilik saat ini", short(res.owner)], ["Terdaftar", res.history[0]?.date ?? "-"]].map(([k, v]) => <div key={k}><dt className="text-xs text-muted-foreground">{k}</dt><dd className="font-mono">{v}</dd></div>)}
           </dl>
           <p className={`mt-4 rounded-lg p-3 text-sm ${res.status === "Lost" ? "bg-destructive/10 text-destructive" : "bg-success/10 text-success"}`}>
             {res.status === "Lost" ? "⚠ Aset ini dilaporkan hilang. Jangan membeli tanpa konfirmasi pemilik." : "✓ Sertifikat valid (simulasi)."}
